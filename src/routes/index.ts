@@ -1,6 +1,5 @@
-import express from "express";
-import { HelloRoutes } from "./HelloRoutes";
-import { UserRoutes } from "./UserRoutes";
+import express, { Router } from "express";
+import { HelloRoutes, UserRoutes } from "./routes";
 
 const router = express.Router();
 
