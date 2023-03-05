@@ -1,0 +1,29 @@
+version: '3'
+services:
+  app:
+    container_name: express-typescirpt-demo
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - './src/:/app/src'
+      - '/app/node_modules'
+      # - '.:/app'
+  db:
+    image: mysql/mysql-server:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql
+    ports:
+      - '9900:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: express-typescript-demo
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - './db:/var/lib/mysql'
+  
+
+
